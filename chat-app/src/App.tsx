@@ -1,44 +1,17 @@
-import { useEffect } from "react";
 import "./App.css";
-import { Button, ConfigProvider } from "antd";
-import { useTheme } from "./stores/themeProvider";
-
+import { Button } from "antd";
+import str from "./localization";
+import ThemeProvider from "./components/molecules/providers/theme";
+import LangProvider from "./components/molecules/providers/lang";
 function App() {
-  const { theme, Themehandler, setTheme } = useTheme();
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-color-schema: dark)").matches) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, []);
-
   return (
-    <ConfigProvider
-      theme={{
-        token: {
-          // Seed Token
-          colorPrimary: "#00b96b",
-          borderRadius: 2,
-
-          // Alias Token
-          colorBgContainer: "#f6ffed",
-        },
-      }}
-    >
-      <Button className="!bg-[#000] dark:!bg-white" onClick={Themehandler}>
-        button
-      </Button>
-    </ConfigProvider>
+    <ThemeProvider>
+      <LangProvider>
+        <Button className="!bg-[#000] dark:!bg-white" onClick={() => {}}>
+          {str.title}
+        </Button>
+      </LangProvider>
+    </ThemeProvider>
   );
 }
 
