@@ -26,11 +26,11 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       theme={{
         token: {
           // Seed Token
-          colorPrimary: "#00b96b",
+          colorPrimary: "#5B96F7",
+          colorBgContainerDisabled: "#5B96F7",
           borderRadius: 2,
-
           // Alias Token
-          colorBgContainer: "#f6ffed",
+          colorBgContainer: "#5B96F7",
         },
       }}
     >

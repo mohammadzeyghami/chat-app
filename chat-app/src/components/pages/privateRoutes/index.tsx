@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes as Router } from "react-router-dom";
 import Routes from "../../routes";
-import { MainLayout } from "../../sections";
+import { LeftbarMain, MainLayout, SidebarMain } from "../../sections";
 
 //lazy loading
 
@@ -31,16 +31,23 @@ const PrivateRoutes = ({
     console.log(userRoles);
     return (
       <Router>
-        {/* <Navigate to={"*"} replace /> */}
         <Route
-          path={"/*"}
+          path={"/home"}
+          element={
+            <MainLayout leftContent={<LeftbarMain />} sidebar={<SidebarMain />}>
+              <div className="w-full bg-blue  !text-black">homePage</div>
+            </MainLayout>
+          }
+        />
+        <Route
+          path={"*"}
           element={
             <MainLayout
               header={<div>navbar</div>}
               sidebar={<div>sidebar</div>}
               rightBar={<div className="bg-black">rightbar</div>}
             >
-              <div className="w-[80vw] bg-blue !text-black">homePage</div>
+              404
             </MainLayout>
           }
         />
