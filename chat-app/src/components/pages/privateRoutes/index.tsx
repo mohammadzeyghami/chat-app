@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes as Router } from "react-router-dom";
 import Routes from "../../routes";
 import { LeftbarMain, MainLayout, SidebarMain } from "../../sections";
+import { View } from "../..";
 
 //lazy loading
 
@@ -23,7 +24,7 @@ interface MyPrivateprops {
   isAuthenticated: boolean;
   userRoles: string[];
 }
-const PrivateRoutes = ({
+const   PrivateRoutes = ({
   isAuthenticated = true,
   userRoles,
 }: MyPrivateprops) => {
@@ -36,6 +37,10 @@ const PrivateRoutes = ({
           element={
             <MainLayout leftContent={<LeftbarMain />} sidebar={<SidebarMain />}>
               <div className="w-full bg-blue  !text-black">homePage</div>
+              {/* create Home page here */}
+              <View>
+                <div>home</div>
+              </View>
             </MainLayout>
           }
         />
